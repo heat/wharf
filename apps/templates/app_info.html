@@ -13,6 +13,11 @@ Can't deploy due to missing GITHUB_URL in config (which should be set to the "Cl
   <button type="submit" class="btn btn-primary">Deploy app</button>
 </form>
 {% endif %}
+<form class="form-inline" action="{{ url('deploy', app_name=app) }}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="url" value="{{ git_url }}" />
+  <button type="submit" class="btn btn-primary">Restart app</button>
+</form>
 <h2>Task logs</h2>
 {% if task_logs %}
 <ul>

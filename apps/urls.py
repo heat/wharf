@@ -15,6 +15,7 @@ urlpatterns = [
     path('apps/<app_name>/wait/<task_id>/<after>', views.wait_for_command, name='wait_for_command'),
     path('apps/<app_name>/check_app_config_set/<task_id>', views.check_app_config_set, name='check_app_config_set'),
     path('apps/<app_name>/deploy', views.deploy, name='deploy'),
+    path('apps/<app_name>/restart', views.restart, name='restart'),
     path('apps/<app_name>/check_deploy/<task_id>', views.check_deploy, name='check_deploy'),
     path('apps/<app_name>/create_postgres', views.create_postgres, name='create_postgres'),
     path('apps/<app_name>/check_postgres/<task_id>', views.check_postgres, name='check_postgres'),

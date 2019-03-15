@@ -321,6 +321,9 @@ def deploy(request, app_name):
     clear_cache("ps:report %s" % app_name)
     return redirect(reverse('wait_for_command', kwargs={'app_name': app_name, 'task_id': res.id, 'after': "check_deploy"}))
 
+def restart(request, app_name):
+    return redirect(reverse('wait_for_command', kwargs={'app_name': app_name, 'task_id': res.id, 'after': "check_deploy"}))
+
 def create_postgres(request, app_name):
     return run_cmd_with_log(app_name, "Add Postgres", ["postgres:create %s" % app_name, "postgres:link %s %s" % (app_name, app_name)], "check_postgres")
 
